@@ -1,11 +1,33 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { RutaProtegida } from './components/RutaProtegida';
+import { Menu } from './components/Menu';
+
+// Importamos todas tus páginas
+import { Login } from './pages/Login';
+import { Dashboard } from './pages/Dashboard';
+import { Equipo } from './pages/Equipo';
+import { Eventos } from './pages/Eventos';
+import { Peticiones } from './pages/Peticiones';
+import { Alabanzas } from './pages/Alabanzas';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<h1>Login</h1>} />
-      <Route path="/dashboard" element={<h1>Dashboard</h1>} />
-    </Routes>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* Ruta Pública (No lleva Menú) */}
+          <Route path="/login" element={<Login />} />
+
+          {/* Rutas Privadas (Llevan Menú arriba de la página) */}
+          <Route path="/" element={<RutaProtegida><Menu /><Dashboard /></RutaProtegida>} />
+          <Route path="/equipo" element={<RutaProtegida><Menu /><Equipo /></RutaProtegida>} />
+          <Route path="/eventos" element={<RutaProtegida><Menu /><Eventos /></RutaProtegida>} />
+          <Route path="/peticiones" element={<RutaProtegida><Menu /><Peticiones /></RutaProtegida>} />
+          <Route path="/alabanzas" element={<RutaProtegida><Menu /><Alabanzas /></RutaProtegida>} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
