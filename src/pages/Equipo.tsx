@@ -7,13 +7,13 @@ export const Equipo = () => {
   const [editando, setEditando] = useState(false);
   const [formData, setFormData] = useState<MiembroEquipo>({ id: '', nombre: '', apellido: '', rol: '', telefono: '', correo: '' });
 
-  // Cargar datos al iniciar
+  // Cargar datos 
   useEffect(() => {
     const datos = localStorage.getItem('iglesia_equipo');
     if (datos) setMiembros(JSON.parse(datos));
   }, []);
 
-  // Guardar datos cada vez que 'miembros' cambie
+  // Guardar datos 
   useEffect(() => {
     localStorage.setItem('iglesia_equipo', JSON.stringify(miembros));
   }, [miembros]);

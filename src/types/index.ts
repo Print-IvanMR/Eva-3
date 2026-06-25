@@ -8,7 +8,7 @@ export interface MiembroEquipo {
   id: string;
   nombre: string;
   apellido: string;
-  rol: string;      // rol/cargo
+  rol: string;      
   telefono: string;
   correo: string;
 }
@@ -17,15 +17,15 @@ export interface Evento {
   id: string;
   nombre: string;
   fecha: string;
-  encargado: string; // persona a cargo
+  encargado: string; 
   lugar: string;
   hora: string;
 }
 
 export interface Peticion {
   id: string;
-  peticion: string;  // El texto del motivo
-  solicitante: string; // persona que solicita
+  peticion: string;  
+  solicitante: string; 
   tipo: string;
 }
 

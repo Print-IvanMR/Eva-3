@@ -3,7 +3,7 @@ import { AuthProvider } from './context/AuthContext';
 import { RutaProtegida } from './components/RutaProtegida';
 import { Menu } from './components/Menu';
 
-// Importamos todas tus páginas
+// páginas
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
 import { Equipo } from './pages/Equipo';
@@ -16,10 +16,10 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/* Ruta Pública (No lleva Menú) */}
+          {/* Ruta Pública */}
           <Route path="/login" element={<Login />} />
 
-          {/* Rutas Privadas (Llevan Menú arriba de la página) */}
+          {/* Rutas Privadas */}
           <Route path="/" element={<RutaProtegida><Menu /><Dashboard /></RutaProtegida>} />
           <Route path="/equipo" element={<RutaProtegida><Menu /><Equipo /></RutaProtegida>} />
           <Route path="/eventos" element={<RutaProtegida><Menu /><Eventos /></RutaProtegida>} />

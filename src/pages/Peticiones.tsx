@@ -17,7 +17,7 @@ export const Peticiones = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setPeticiones([...peticiones, { ...formData, id: Date.now().toString() }]);
-    setFormData({ id: '', solicitante: '', peticion: '', tipo: '' }); // Limpia el formulario
+    setFormData({ id: '', solicitante: '', peticion: '', tipo: '' }); // esto limpia el formulario
   };
 
   return (
